@@ -1,0 +1,44 @@
+﻿static class program
+{
+
+    static void swap(ref int num1 , ref int num2)
+    {
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
+    }
+
+    static void BubbleSort(int[] arr)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            for (int j = 0; j < arr.Length - i - 1 ; j++)
+            {
+                if(arr[j] >  arr[j+1])
+                    swap(ref arr[j] ,ref arr[j+1]);
+            }
+        }
+    }
+
+    static void Main(string[] args)
+    {
+        int[] arr = { 5, 35, 5, 3, 7, 8, 2, 55, 5, 55, 5, 2, 7, 8 };
+
+        Console.Write("before :");
+        foreach(int num in arr)
+        {
+            Console.Write($"  {num}");
+        }
+        Console.WriteLine();
+        Console.WriteLine();
+        BubbleSort(arr);
+
+        Console.Write("after :");
+        foreach (int num in arr)
+        {
+            Console.Write($"  {num}");
+        }
+
+        Console.ReadKey();
+    }
+}
