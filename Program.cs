@@ -1,0 +1,55 @@
+﻿static class program
+{
+
+    static int BinarySearch(int[] arr, int num, int start , int end)
+    {
+
+        if(start>end)
+            return -1;
+        
+        
+        int middle =  ((start + end) / 2);
+
+        if(num == arr[middle])
+            return middle;
+
+       
+        if (num < arr[middle])
+            return  BinarySearch(arr, num, start, middle - 1);
+        else
+            return BinarySearch(arr, num, middle + 1, end);
+
+    }
+
+    static int BinarySearc(int[] arr, int num)
+    {
+        int start = 0;
+        int end = arr.Length - 1;
+
+        while (start <= end)
+        {
+            int middle = start + (end - start) / 2;
+
+            if (arr[middle] == num)
+                return middle;
+
+            if (num < arr[middle])
+                end = middle - 1;
+            else
+                start = middle + 1;
+        }
+
+        return -1;
+    }
+
+
+
+    static void Main(string[] args)
+    {
+
+        int[] arr = { 1,4,10,20,30,40,50,60,70,80};
+
+        Console.WriteLine(BinarySearch(arr, 40, 0, arr.Length - 1));
+    
+    }
+}
